@@ -186,7 +186,3 @@ data_file 'AUDIO_SYNTHDATA' 'audioconfig/p60b40_amp.dat'
 data_file 'AUDIO_GAMEDATA' 'audioconfig/p60b40_game.dat'
 data_file 'AUDIO_SOUNDDATA' 'audioconfig/p60b40_sounds.dat'
 data_file 'AUDIO_WAVEPACK' 'sfx/dlc_p60b40'
-
-client_script {
-    'vehicle_names.lua'
-}
