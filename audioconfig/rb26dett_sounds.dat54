@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dat54>
+ <Version value="22266904" />
+ <NameTable>
+  <Item>RESIDENT\VEHICLES</Item>
+  <Item>0</Item>
+  <Item>DLC_RB26DETT\rb26dett</Item>
+  <Item>DLC_RB26DETT\rb26dett_npc</Item>
+ </NameTable>
+ <Items>
+  <Item type="GranularSound">
+   <Name>rb26dett_engine_accel</Name>
+   <Header>
+    <Flags value="0x00208001" />
+    <Flags2 value="0x9555AAAA" />
+    <Category>hash_F7C35252</Category>
+    <Unk18 value="150" />
+   </Header>
+   <WaveSlotIndex value="0" />
+   <Wave1>
+    <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+    <FileName>engine_accel</FileName>
+   </Wave1>
+   <Wave2>
+    <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+    <FileName>exhaust_accel</FileName>
+   </Wave2>
+   <Wave3>
+    <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+    <FileName>engine_decel</FileName>
+   </Wave3>
+   <Wave4>
+    <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+    <FileName>exhaust_decel</FileName>
+   </Wave4>
+   <Wave5>
+    <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+    <FileName>engine_idle</FileName>
+   </Wave5>
+   <Wave6>
+    <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+    <FileName>exhaust_idle</FileName>
+   </Wave6>
+   <DataItem1>
+    <UnkFlags0 value="0" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="0.5" />
+   </DataItem1>
+   <DataItem2>
+    <UnkFlags0 value="1" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="0.5" />
+   </DataItem2>
+   <DataItem3>
+    <UnkFlags0 value="0" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem3>
+   <DataItem4>
+    <UnkFlags0 value="1" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem4>
+   <DataItem5>
+    <UnkFlags0 value="0" />
+    <UnkFlags1 value="1" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem5>
+   <DataItem6>
+    <UnkFlags0 value="1" />
+    <UnkFlags1 value="1" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem6>
+   <UnkFloat0 value="0.01" />
+   <UnkFloat1 value="0.05" />
+   <UnkShort0 value="0" />
+   <UnkShort1 value="0" />
+   <UnkShort2 value="0" />
+   <UnkShort3 value="200" />
+   <UnkShort4 value="-600" />
+   <UnkShort5 value="0" />
+   <TrackName />
+   <UnkVecData>
+    12, 54.76
+    8.5, 8.5
+   </UnkVecData>
+  </Item>
+  <Item type="GranularSound">
+   <Name>rb26dett_engine_accel_npc</Name>
+   <Header>
+    <Flags value="0x00208001" />
+    <Flags2 value="0x9555AAAA" />
+    <Category>hash_F7C35252</Category>
+    <Unk18 value="150" />
+   </Header>
+   <WaveSlotIndex value="0" />
+   <Wave1>
+    <ContainerName>dlc_rb26dett/rb26dett_npc</ContainerName>
+    <FileName>engine_accel</FileName>
+   </Wave1>
+   <Wave2>
+    <ContainerName>dlc_rb26dett/rb26dett_npc</ContainerName>
+    <FileName>exhaust_accel</FileName>
+   </Wave2>
+   <Wave3>
+    <ContainerName>0</ContainerName>
+    <FileName />
+   </Wave3>
+   <Wave4>
+    <ContainerName>0</ContainerName>
+    <FileName />
+   </Wave4>
+   <Wave5>
+    <ContainerName>dlc_rb26dett/rb26dett_npc</ContainerName>
+    <FileName>engine_idle</FileName>
+   </Wave5>
+   <Wave6>
+    <ContainerName>dlc_rb26dett/rb26dett_npc</ContainerName>
+    <FileName>exhaust_idle</FileName>
+   </Wave6>
+   <DataItem1>
+    <UnkFlags0 value="0" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="0.5" />
+   </DataItem1>
+   <DataItem2>
+    <UnkFlags0 value="1" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="0.5" />
+   </DataItem2>
+   <DataItem3>
+    <UnkFlags0 value="0" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem3>
+   <DataItem4>
+    <UnkFlags0 value="1" />
+    <UnkFlags1 value="0" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem4>
+   <DataItem5>
+    <UnkFlags0 value="0" />
+    <UnkFlags1 value="1" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem5>
+   <DataItem6>
+    <UnkFlags0 value="1" />
+    <UnkFlags1 value="1" />
+    <UnkByte0 value="0" />
+    <UnkByte1 value="0" />
+    <UnkFloat value="1" />
+   </DataItem6>
+   <UnkFloat0 value="0.01" />
+   <UnkFloat1 value="0.05" />
+   <UnkShort0 value="0" />
+   <UnkShort1 value="0" />
+   <UnkShort2 value="-300" />
+   <UnkShort3 value="0" />
+   <UnkShort4 value="-700" />
+   <UnkShort5 value="0" />
+   <TrackName>rb26dett_engine_accel</TrackName>
+   <UnkVecData>
+    12, 54.76
+    8.5, 8.5
+   </UnkVecData>
+  </Item>
+  <Item type="EnvironmentSound">
+   <Name>rb26dett_exhaust_accel</Name>
+   <Header>
+    <Flags value="0x00008000" />
+    <Category>hash_F7C35252</Category>
+   </Header>
+   <UnkByte value="1" />
+  </Item>
+  <Item type="ModularSynthSound">
+   <Name>rb26dett_synth_veh_idle_sub</Name>
+   <Header>
+    <Flags value="0x00008015" />
+    <Flags2 value="0xAAA8AAAA" />
+    <Unk02 value="64236" />
+    <Unk04 value="1200" />
+    <Category>vehicles_engines_loud</Category>
+   </Header>
+   <OptAmpUnkHash>comet5_sub_idle</OptAmpUnkHash>
+   <UnkHash />
+   <UnkFloat value="-1" />
+   <UnkInt value="0" />
+   <TrackCount value="0" />
+   <AudioTracks>
+    <Item />
+    <Item />
+    <Item />
+    <Item />
+   </AudioTracks>
+   <UnkItems>
+    <Item>
+     <UnkHash>hash_ABD2A3D6</UnkHash>
+     <ParameterHash />
+     <Value value="9.36" />
+    </Item>
+    <Item>
+     <UnkHash>hash_AAED9868</UnkHash>
+     <ParameterHash />
+     <Value value="60" />
+    </Item>
+    <Item>
+     <UnkHash>hash_4E132C3B</UnkHash>
+     <ParameterHash />
+     <Value value="1" />
+    </Item>
+    <Item>
+     <UnkHash>hash_18B20B91</UnkHash>
+     <ParameterHash />
+     <Value value="3" />
+    </Item>
+    <Item>
+     <UnkHash>hash_E07986E5</UnkHash>
+     <ParameterHash />
+     <Value value="3.5" />
+    </Item>
+    <Item>
+     <UnkHash>hash_52E84522</UnkHash>
+     <ParameterHash />
+     <Value value="1.5" />
+    </Item>
+    <Item>
+     <UnkHash>hash_8115C581</UnkHash>
+     <ParameterHash />
+     <Value value="2" />
+    </Item>
+    <Item>
+     <UnkHash>hash_24E7B0B4</UnkHash>
+     <ParameterHash />
+     <Value value="12" />
+    </Item>
+    <Item>
+     <UnkHash>hash_D250E3B7</UnkHash>
+     <ParameterHash />
+     <Value value="1" />
+    </Item>
+    <Item>
+     <UnkHash>hash_15857327</UnkHash>
+     <ParameterHash />
+     <Value value="250" />
+    </Item>
+    <Item>
+     <UnkHash>hash_39B29F61</UnkHash>
+     <ParameterHash />
+     <Value value="0.8" />
+    </Item>
+   </UnkItems>
+  </Item>
+  <Item type="RandomizedSound">
+   <Name>rb26dett_dump_valve_rnd</Name>
+   <Header>
+    <Flags value="0x00048004" />
+    <Unk02 value="64136" />
+    <Category>vehicles_extras_loud</Category>
+    <Unk16 value="150" />
+   </Header>
+   <UnkByte value="0" />
+   <UnkBytes>FF</UnkBytes>
+   <Items>
+    <Item key="dlc_rb26dett_rb26dett_vehicles_extras_dump_valve_10a" value="1" />
+    <Item key="dlc_rb26dett_rb26dett_vehicles_extras_dump_valve_10b" value="1" />
+    <Item key="dlc_rb26dett_rb26dett_vehicles_extras_dump_valve_10c" value="1" />
+   </Items>
+  </Item>
+  <Item type="WrapperSound">
+   <Name>rb26dett_dump_valve</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <AudioHash0>rb26dett_dump_valve_rnd</AudioHash0>
+   <FrameStartTime value="0" />
+   <AudioHash1>hash_C0108E98</AudioHash1>
+   <FrameTimeInterval value="0" />
+   <Variables />
+   <AudioTracks>
+    <Item>rb26dett_dump_valve_rnd</Item>
+    <Item>hash_C0108E98</Item>
+   </AudioTracks>
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_rb26dett_rb26dett_vehicles_extras_dump_valve_10a</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+   <FileName>hash_22FABE43</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_rb26dett_rb26dett_vehicles_extras_dump_valve_10b</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+   <FileName>hash_693BCAC4</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_rb26dett_rb26dett_vehicles_extras_dump_valve_10c</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+   <FileName>hash_787F694B</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="RandomizedSound">
+   <Name>rb26dett_limiter_pops_rnd</Name>
+   <Header>
+    <Flags value="0x00048024" />
+    <Unk02 value="65236" />
+    <Unk05 value="25" />
+    <Category>vehicles_extras_loud</Category>
+    <Unk16 value="80" />
+   </Header>
+   <UnkByte value="0" />
+   <UnkBytes>FF FF</UnkBytes>
+   <Items>
+    <Item key="dlc_rb26dett_rb26dett_vehicle_extras_rally_limiter_pop_04" value="1" />
+    <Item key="dlc_rb26dett_rb26dett_vehicle_extras_rally_limiter_pop_03" value="1" />
+    <Item key="dlc_rb26dett_rb26dett_vehicle_extras_rally_limiter_pop_02" value="1" />
+    <Item key="dlc_rb26dett_rb26dett_vehicle_extras_rally_limiter_pop_01" value="1" />
+   </Items>
+  </Item>
+  <Item type="WrapperSound">
+   <Name>rb26dett_limiter_pops</Name>
+   <Header>
+    <Flags value="0x00000010" />
+    <Unk04 value="65336" />
+   </Header>
+   <AudioHash0>rb26dett_limiter_pops_mt</AudioHash0>
+   <FrameStartTime value="0" />
+   <AudioHash1>hash_0C2B85F2</AudioHash1>
+   <FrameTimeInterval value="0" />
+   <Variables />
+   <AudioTracks>
+    <Item>rb26dett_limiter_pops_mt</Item>
+    <Item>hash_0C2B85F2</Item>
+   </AudioTracks>
+  </Item>
+  <Item type="MultitrackSound">
+   <Name>rb26dett_limiter_pops_mt</Name>
+   <Header>
+    <Flags value="0x00040001" />
+    <Flags2 value="0xAAA0AAAA" />
+    <Unk16 value="200" />
+   </Header>
+   <AudioTracks>
+    <Item>rb26dett_limiter_pops_rnd</Item>
+    <Item>rb26dett_limiter_pops_oneshot_rnd</Item>
+    <Item>rb26dett_limiter_pops_oneshot_end_rnd</Item>
+   </AudioTracks>
+  </Item>
+  <Item type="RandomizedSound">
+   <Name>rb26dett_limiter_pops_oneshot_rnd</Name>
+   <Header>
+    <Flags value="0x00008020" />
+    <Unk05 value="50" />
+    <Category>vehicles_extras_loud</Category>
+   </Header>
+   <UnkByte value="0" />
+   <UnkBytes>FF FF</UnkBytes>
+   <Items>
+    <Item key="dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_01" value="1" />
+    <Item key="dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_03" value="1" />
+    <Item key="dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_04" value="1" />
+    <Item key="dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_05" value="1" />
+   </Items>
+  </Item>
+  <Item type="WrapperSound">
+   <Name>rb26dett_limiter_pops_oneshot_end_rnd</Name>
+   <Header>
+    <Flags value="0x00000320" />
+    <Unk05 value="100" />
+    <Unk08 value="440" />
+    <Unk09 value="30" />
+   </Header>
+   <AudioHash0>rb26dett_limiter_pops_oneshot_rnd</AudioHash0>
+   <FrameStartTime value="0" />
+   <AudioHash1 />
+   <FrameTimeInterval value="0" />
+   <Variables />
+   <AudioTracks>
+    <Item>rb26dett_limiter_pops_oneshot_rnd</Item>
+    <Item />
+   </AudioTracks>
+  </Item>
+  <Item type="RandomizedSound">
+   <Name>rb26dett_exhaust_pops_rnd</Name>
+   <Header>
+    <Flags value="0x00048000" />
+    <Category>vehicles_extras_loud</Category>
+    <Unk16 value="150" />
+   </Header>
+   <UnkByte value="0" />
+   <UnkBytes>FF FF FF</UnkBytes>
+   <Items>
+    <Item key="dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_06" value="1" />
+    <Item key="dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_05" value="1" />
+    <Item key="dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_04" value="1" />
+    <Item key="dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_03" value="1" />
+    <Item key="dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_02" value="1" />
+    <Item key="dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_01" value="1" />
+   </Items>
+  </Item>
+  <Item type="WrapperSound">
+   <Name>rb26dett_exhaust_pops</Name>
+   <Header>
+    <Flags value="0x00000010" />
+    <Unk04 value="65336" />
+   </Header>
+   <AudioHash0>rb26dett_exhaust_pops_rnd</AudioHash0>
+   <FrameStartTime value="0" />
+   <AudioHash1>hash_0C2B85F2</AudioHash1>
+   <FrameTimeInterval value="0" />
+   <Variables />
+   <AudioTracks>
+    <Item>rb26dett_exhaust_pops_rnd</Item>
+    <Item>hash_0C2B85F2</Item>
+   </AudioTracks>
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_01</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+   <FileName>hash_B050E468</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_02</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+   <FileName>hash_9F0F41E5</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_03</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+   <FileName>hash_CD5D9E81</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_04</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+   <FileName>hash_FD5F7E84</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_05</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+   <FileName>hash_EB5ADA7B</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_rb26dett_rb26dett_vehicle_extras_rally_exhaust_pop_06</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+   <FileName>hash_1A1537EF</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_rb26dett_rb26dett_vehicle_extras_rally_limiter_pop_01</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+   <FileName>hash_498FD564</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_rb26dett_rb26dett_vehicle_extras_rally_limiter_pop_02</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+   <FileName>hash_306F2323</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_rb26dett_rb26dett_vehicle_extras_rally_limiter_pop_03</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+   <FileName>hash_250C0C5D</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>dlc_rb26dett_rb26dett_vehicle_extras_rally_limiter_pop_04</Name>
+   <Header>
+    <Flags value="0x00000000" />
+   </Header>
+   <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+   <FileName>hash_451FCC9C</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>rb26dett_start_up</Name>
+   <Header>
+    <Flags value="0x00008000" />
+    <Category>vehicles_extras_loud</Category>
+   </Header>
+   <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+   <FileName>hash_9D64B840</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+  <Item type="SimpleSound">
+   <Name>rb26dett_shut_down</Name>
+   <Header>
+    <Flags value="0x00008000" />
+    <Category>vehicles_engines_startup</Category>
+   </Header>
+   <ContainerName>dlc_rb26dett/rb26dett</ContainerName>
+   <FileName>hash_3B393DEA</FileName>
+   <WaveSlotNum value="0" />
+  </Item>
+ </Items>
+</Dat54>
