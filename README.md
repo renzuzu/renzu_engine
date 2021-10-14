@@ -1,11 +1,22 @@
 # enginesound
 Change Vehicle Engine Sound and Sync to all server One Sync/One Sync Infinity (included carsound pack from gta5mods)
 
-- Installation:
-- Drag enginesound to your resource folder and start at server.cfg
+# version 2.0
+- Engine as items
+- Custom Engine
+- Custom Specs
+- Custom Sounds
+- Local Vehicle Spec if Engine is Local vehicle
+- Copy Local Vehicle sounds
+- Fully Server sync using Onesync state bags
+
+# Install
+- Import SQL
+- Restart server twice after running once to make sure items are registered and usable
 - start enginesound
-- Usage: 
-- /changesound k20a
+
+# Use
+- /giveitem muffler_zentorno 1
+- /giveitem muffler_supra2jzgtett 1
+- or
 - /changesound elegy
-- /changesound toysupmk4
-- /changesound blista
