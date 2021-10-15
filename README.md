@@ -1,4 +1,4 @@
-# enginesound
+# renzu_engine
 Change Vehicle Engine Sound and Sync to all server One Sync/One Sync Infinity (included carsound pack from gta5mods)
 
 # version 2.0
@@ -13,7 +13,7 @@ Change Vehicle Engine Sound and Sync to all server One Sync/One Sync Infinity (i
 # Install
 - Import SQL
 - Restart server twice after running once to make sure items are registered and usable
-- start enginesound
+- start renzu_engine
 
 # Use
 - /giveitem muffler_zentorno 1
