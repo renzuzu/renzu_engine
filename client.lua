@@ -13,7 +13,7 @@ vehiclehandling = {}
 enginespec = false
 Citizen.CreateThread(function()
     if Config.engine_handling then
-      local f = LoadResourceFile("enginesound","handling.min.json")
+      local f = LoadResourceFile("renzu_engine","handling.min.json")
       vehiclehandling = json.decode(f)
       Wait(100)
       collectgarbage()

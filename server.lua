@@ -16,6 +16,7 @@ RegisterCommand("changesound", function(source, args, rawCommand)
       end
       mufflers[plate].current = mufflers[plate].muffler or args[1]
       mufflers[plate].muffler = args[1]
+      mufflers[plate].engine = args[1]
       mufflers[plate].plate = plate
   end
 end, false)
