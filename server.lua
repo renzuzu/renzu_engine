@@ -18,6 +18,10 @@ RegisterCommand("changesound", function(source, args, rawCommand)
       mufflers[plate].muffler = args[1]
       mufflers[plate].engine = args[1]
       mufflers[plate].plate = plate
+      local ent = Entity(veh).state
+      local hash = GetHashKey(mufflers[plate].muffler)
+      ent.muffler = Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler
+      ent.engine = mufflers[plate].engine
   end
 end, false)
 
@@ -29,18 +33,14 @@ Citizen.CreateThread(function()
     mufflers[v.plate].current = v.muffler
   end
 
-  while true do
-    for k,v in ipairs(GetAllVehicles()) do
-      local plate = GetVehicleNumberPlateText(v)
-      if mufflers[plate] and plate == mufflers[plate].plate then
-        local ent = Entity(v).state
-        local hash = GetHashKey(mufflers[plate].muffler)
-        ent.muffler = Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler
-        ent.engine = mufflers[plate].engine
-        print(mufflers[plate].engine)
-      end
+  for k,v in ipairs(GetAllVehicles()) do
+    local plate = GetVehicleNumberPlateText(v)
+    if mufflers[plate] and plate == mufflers[plate].plate then
+      local ent = Entity(v).state
+      local hash = GetHashKey(mufflers[plate].muffler)
+      ent.muffler = Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler
+      ent.engine = mufflers[plate].engine
     end
-    Wait(5000)
   end
 end)
 
@@ -161,9 +161,27 @@ Citizen.CreateThread(function()
         mufflers[plate].muffler = muffler
         mufflers[plate].plate = plate
         mufflers[plate].engine = v
+        local ent = Entity(veh).state
+        local hash = GetHashKey(mufflers[plate].muffler)
+        ent.muffler = Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler
+        ent.engine = mufflers[plate].engine
         SaveMuffler(plate,v)
       end
     end)
   end
   print(" MUFFLER LOADED ")
+end)
+
+AddEventHandler('entityCreated', function(entity)
+  local entity = entity
+  if GetEntityPopulationType(entity) == 7 and DoesEntityExist(entity) then
+    Wait(4000)
+    local plate = GetVehicleNumberPlateText(entity)
+    if mufflers[plate] and mufflers[plate].muffler then
+      local ent = Entity(entity).state
+      local hash = GetHashKey(mufflers[plate].muffler)
+      ent.muffler = Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler
+      ent.engine = mufflers[plate].engine
+    end
+  end
 end)
