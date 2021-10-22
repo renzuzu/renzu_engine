@@ -122,9 +122,7 @@ function SetEngineSpecs(veh, model)
 end
 
 function GetHandlingfromModel(model)
-  print(model,'gago')
 	local model = GetHashKey(model)
-  print(model,'gago2')
 	if Config.custom_engine_enable and Config.custom_engine[model] ~= nil then
 		if Config.custom_engine[model].turboinstall then
 			ToggleVehicleMod(GetVehiclePedIsIn(PlayerPedId()) , 18, true)

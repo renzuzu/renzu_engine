@@ -31,8 +31,10 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	[`rx713b`] = {custom = true, turboinstall = true, handlingName = 'rx713b', label = 'RX7 13B-REW twin-rotor Twin Turbo', soundname = 'rotary7', fMass = '1340.000000', nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.090000, fClutchChangeRateScaleUpShift = 7.700000, fClutchChangeRateScaleDownShift = 7.100000, fInitialDriveMaxFlatVel = 182.000000, },
 
 	-- BELOW is custom added, the handling is set to default, you may want to customized the handling
+	-- BELOW is custom added, the handling is set to default, you may want to customized the handling
+	-- BELOW is custom added, the handling is set to default, you may want to customized the handling
 	[`musv8`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 168.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'musv8',  -- sound name
@@ -41,7 +43,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	}, 
 
 	[`r488sound`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'r488sound',  -- sound name
@@ -49,7 +51,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	soundname = '488sound',  -- sound name
 	}, 
 	[`apollosv8`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'apollosv8',  -- sound name
@@ -57,7 +59,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	soundname = 'apollosv8',  -- sound name
 	},
 	[`avesvv12`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'avesvv12',  -- sound name
@@ -65,7 +67,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	soundname = 'avesvv12',  -- sound name
 	},
 	[`avesvv12`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'avesvv12',  -- sound name
@@ -74,7 +76,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`c6v8sound`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'c6v8sound',  -- sound name
@@ -83,7 +85,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`diablov12`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'diablov12',  -- sound name
@@ -92,7 +94,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`f40v8`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'f40v8',  -- sound name
@@ -101,7 +103,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`f50v12`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'f50v12',  -- sound name
@@ -110,7 +112,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`ferrarif12`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'ferrarif12',  -- sound name
@@ -119,7 +121,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`gtaspanov10`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'gtaspanov10',  -- sound name
@@ -128,7 +130,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`k20a`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'k20a',  -- sound name
@@ -137,7 +139,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`r35sound`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'r35sound',  -- sound name
@@ -146,7 +148,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`mclarenv8`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'mclarenv8',  -- sound name
@@ -155,7 +157,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`murciev12`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'murciev12',  -- sound name
@@ -164,7 +166,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`perfov10`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'perfov10',  -- sound name
@@ -173,7 +175,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`sestov10`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'sestov10',  -- sound name
@@ -182,7 +184,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`urusv8`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'urusv8',  -- sound name
@@ -191,7 +193,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`veyronsound`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'veyronsound',  -- sound name
@@ -200,7 +202,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`viperv10`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'viperv10',  -- sound name
@@ -209,7 +211,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`gt3flat6`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'gt3flat6',  -- sound name
@@ -218,7 +220,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`m158huayra`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'm158huayra',  -- sound name
@@ -227,7 +229,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`m297zonda`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'm297zonda',  -- sound name
@@ -236,7 +238,7 @@ Config.custom_engine = { -- advanced usage, Custom Engine, customsounds, custom 
 	},
 
 	[`p60b40`] = { -- ito pa importante same ng soundname
-	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000,
+	nInitialDriveGears = 5, fInitialDriveForce = 0.425000, fDriveInertia = 1.200000, fClutchChangeRateScaleUpShift = 8.200000, fClutchChangeRateScaleDownShift = 8.200000, fInitialDriveMaxFlatVel = 148.000000, fMass = '1400.000000',
 	custom = true, -- DECLARE AS CUSTOM ENGINE
 	turboinstall = true, -- this engine has a default turbo install?
 	handlingName = 'p60b40',  -- sound name

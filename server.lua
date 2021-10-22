@@ -37,6 +37,7 @@ Citizen.CreateThread(function()
         local hash = GetHashKey(mufflers[plate].muffler)
         ent.muffler = Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler
         ent.engine = mufflers[plate].engine
+        print(mufflers[plate].engine)
       end
     end
     Wait(5000)
