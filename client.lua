@@ -24,7 +24,7 @@ Citizen.CreateThread(function()
       if not invehicle then enginespec = false end
       for k,v in pairs(GetGamePool('CVehicle')) do
           local veh = Entity(v).state
-          if #(mycoords - GetEntityCoords(v, false)) < 100 and veh and veh.muffler then
+          if #(mycoords - GetEntityCoords(v, false)) < 100 and veh and veh.muffler and veh.engine then
             local plate = GetVehicleNumberPlateText(v)
             if vehicle_sounds[plate] == nil then
               vehicle_sounds[plate] = {}
