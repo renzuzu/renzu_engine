@@ -174,6 +174,7 @@ end)
 
 AddEventHandler('entityCreated', function(entity)
   local entity = entity
+  Wait(500)
   if GetEntityPopulationType(entity) == 7 and DoesEntityExist(entity) then
     Wait(4000)
     local plate = GetVehicleNumberPlateText(entity)
