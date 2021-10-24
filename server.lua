@@ -50,7 +50,8 @@ AddEventHandler('renzu_muffler:setmuffler', function(muffler,plate)
 end)
 
 function SaveMuffler(plate,muffler)
-    local result = SqlFunc(Config.Mysql,'fetchAll','SELECT * FROM renzu_muffler WHERE TRIM(plate) = @plate', {['@plate'] = plate})
+    local plate_ = string.gsub(plate, '^%s*(.-)%s*$', '%1')
+    local result = SqlFunc(Config.Mysql,'fetchAll','SELECT * FROM renzu_muffler WHERE TRIM(plate) = @plate', {['@plate'] = plate_})
     if result[1] == nil then
         SqlFunc(Config.Mysql,'execute','INSERT INTO renzu_muffler (plate, muffler) VALUES (@plate, @muffler)', {
             ['@plate']   = plate,
@@ -58,7 +59,7 @@ function SaveMuffler(plate,muffler)
         })
     elseif result[1] then
         SqlFunc(Config.Mysql,'execute','UPDATE renzu_muffler SET muffler = @muffler WHERE TRIM(plate) = @plate', {
-            ['@plate'] = plate,
+            ['@plate'] = plate_,
             ['@muffler'] = muffler,
         })
     end
