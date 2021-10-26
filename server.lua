@@ -176,7 +176,7 @@ end)
 AddEventHandler('entityCreated', function(entity)
   local entity = entity
   Wait(500)
-  if DoesEntityExist(entity) and GetEntityPopulationType(entity) == 7 then
+  if DoesEntityExist(entity) and GetEntityPopulationType(entity) == 7 and GetEntityType(entity) == 2 then
     Wait(4000)
     local plate = GetVehicleNumberPlateText(entity)
     if mufflers[plate] and mufflers[plate].muffler then
