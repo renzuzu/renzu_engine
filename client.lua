@@ -1,69 +1,80 @@
-local vehicle_sounds = {}
-RegisterNetEvent("engine:sound")
-AddEventHandler("engine:sound", function(name,plate)
-  print(name,plate)
-    if vehicle_sounds[plate] == nil then
-        vehicle_sounds[plate] = {}
-    end
-    vehicle_sounds[plate].plate = plate
-    vehicle_sounds[plate].muffler = name
-end)
-
 vehiclehandling = {}
 enginespec = false
+local customengine = {}
+refresh = false
+AddStateBagChangeHandler('muffler' --[[key filter]], nil --[[bag filter]], function(bagName, key, value, _unused, replicated)
+	Wait(0)
+	if not value then return end
+    local net = tonumber(bagName:gsub('entity:', ''), 10)
+    local vehicle = NetworkGetEntityFromNetworkId(net)
+	local ent = Entity(vehicle).state
+	local plate = GetVehicleNumberPlateText(vehicle)
+
+	ForceVehicleEngineAudio(vehicle,value)
+	print('sound',value)
+end)
+
+AddStateBagChangeHandler('engine' --[[key filter]], nil --[[bag filter]], function(bagName, key, value, _unused, replicated)
+	Wait(0)
+	if not value then return end
+    local net = tonumber(bagName:gsub('entity:', ''), 10)
+    local vehicle = NetworkGetEntityFromNetworkId(net)
+	local ent = Entity(vehicle).state
+	local plate = GetVehicleNumberPlateText(vehicle)
+	print('engine',value)
+	SetEngineSpecs(vehicle, value)
+	customengine[plate] = Entity(vehicle).state.engine
+end)
+
+
 Citizen.CreateThread(function()
+	Wait(1)
     if Config.engine_handling then
       local f = LoadResourceFile("renzu_engine","handling.min.json")
       vehiclehandling = json.decode(f)
       Wait(100)
       collectgarbage()
     end
-    while true do
-      local mycoords = GetEntityCoords(PlayerPedId())
-      local invehicle = IsPedInAnyVehicle(PlayerPedId())
-      if not invehicle then enginespec = false end
-      for k,v in pairs(GetGamePool('CVehicle')) do
-          local veh = Entity(v).state
-          if #(mycoords - GetEntityCoords(v, false)) < 100 and veh and veh.muffler and veh.engine then
-            local plate = GetVehicleNumberPlateText(v)
-            if vehicle_sounds[plate] == nil then
-              vehicle_sounds[plate] = {}
-              vehicle_sounds[plate].muffler = veh.muffler
-              vehicle_sounds[plate].plate = plate
-              vehicle_sounds[plate].entity = v
-              vehicle_sounds[plate].engine = veh.engine
-            end
-            vehicle_sounds[plate].muffler = veh.muffler
-            if vehicle_sounds[plate] ~= nil and vehicle_sounds[plate].plate ~= nil and plate == vehicle_sounds[plate].plate and vehicle_sounds[plate].current ~= vehicle_sounds[plate].muffler then
-                ForceVehicleEngineAudio(v,vehicle_sounds[plate].muffler)
-                SetEngineSpecs(v, vehicle_sounds[plate].engine)
-                print(vehicle_sounds[plate].engine)
-                vehicle_sounds[plate].current = vehicle_sounds[plate].muffler
-            end
-          elseif #(mycoords - GetEntityCoords(v, false)) > 100 and vehicle_sounds[plate] ~= nil and vehicle_sounds[plate].current ~= nil then
-            vehicle_sounds[plate].current = nil
-          end
-      end
-      for k,v in pairs(vehicle_sounds) do
-        if not DoesEntityExist(v.entity) then
-          vehicle_sounds[k] = nil
-        end
-      end
-      Wait(2000)
-    end
+end)
+
+AddEventHandler('gameEventTriggered', function (name, args)
+	if name == 'CEventNetworkPlayerEnteredVehicle' then
+		if args[1] == PlayerId() then
+			local plate = GetVehicleNumberPlateText(args[2])
+			print(args[1],args[2],customengine[plate],plate)
+			if customengine[plate] and DoesEntityExist(args[2]) then
+				refresh = true
+				Wait(500)
+				print('set specs')
+				SetEngineSpecs(args[2], customengine[plate])
+			end
+		end
+	end
+	--print(name)
+end)
+
+RegisterNetEvent('renzu_engine:Notify', function(type,msg)
+	lib.defaultNotify({
+		title = 'Engine',
+		description = msg,
+		status = type
+	})
 end)
 
 nextgearhash = `SET_VEHICLE_NEXT_GEAR`
 setcurrentgearhash = `SET_VEHICLE_CURRENT_GEAR`
 
+currentengine = nil
 function SetEngineSpecs(veh, model)
-  if not Config.engine_handling then return end
+	print(veh,model)
+	if not Config.engine_handling then return end
+	if currentengine == model then return end
 	if GetPedInVehicleSeat(veh, -1) == PlayerPedId() then
+		currentengine = model
+		while refresh do Wait(1) end
 		enginespec = false
-		--print("INSIDE LOOP")
-    plate = GetVehicleNumberPlateText(v)
-		Wait(1300)
-    veh = GetVehiclePedIsIn(PlayerPedId())
+    	plate = GetVehicleNumberPlateText(v)
+    	veh = GetVehiclePedIsIn(PlayerPedId())
 		Citizen.CreateThread(function()
 			local model = model
 			local handling = GetHandlingfromModel(model)
@@ -81,10 +92,10 @@ function SetEngineSpecs(veh, model)
 				Wait(11)
 				Citizen.InvokeNative(setcurrentgearhash & 0xFFFFFFFF, veh , 1)
 			end
-			while enginespec do
-        veh = GetVehiclePedIsIn(PlayerPedId())
+			while currentengine == model and IsPedInAnyVehicle(PlayerPedId()) and not refresh do
+        		veh = GetVehiclePedIsIn(PlayerPedId())
 				for k,v in pairs(handling) do
-          local v = tonumber(v)
+          		local v = tonumber(v)
 					if k == 'nInitialDriveGears' then
 						gears = tonumber(v)
 						if gears < 6 and tonumber(GetVehicleMod(veh,13)) > 0 then
@@ -102,11 +113,11 @@ function SetEngineSpecs(veh, model)
 					elseif k == 'fInitialDriveForce' then
 						SetVehStats(veh, "CHandlingData", "fInitialDriveForce", v * multiplier)
 					elseif k == 'fInitialDriveMaxFlatVel' then
-						  mult = 1.0
-							if tonumber(GetVehicleMod(veh,13)) > 0 then
-								mult = 1.25
-							end
-              SetVehicleHandlingField(veh, "CHandlingData", "fInitialDriveMaxFlatVel", v * mult)
+						mult = 1.0
+						if tonumber(GetVehicleMod(veh,13)) > 0 then
+							mult = 1.25
+						end
+              			SetVehicleHandlingField(veh, "CHandlingData", "fInitialDriveMaxFlatVel", v * mult)
 					elseif k ~= 'fMass' then
 						SetVehStats(veh, "CHandlingData", tostring(k), v * 1.0)
 					end
@@ -115,6 +126,10 @@ function SetEngineSpecs(veh, model)
 				
 				Wait(1000)
 			end
+			if currentengine == model then
+				currentengine = nil
+			end
+			refresh = false
 			return
 		end)
 	end

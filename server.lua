@@ -1,14 +1,13 @@
 
 
-ESX = nil
-TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-mufflers = {}
+ESX = exports['es_extended']:getSharedObject()
+local mufflers = {}
 
-RegisterCommand("changesound", function(source, args, rawCommand)
+RegisterCommand("changeengine", function(source, args, rawCommand)
   local source = source
   local veh = GetVehiclePedIsIn(GetPlayerPed(source),false)
   print(veh,GetPlayerPed(source))
-  if args[1] ~= nil and veh ~= 0 then
+  if args[1] ~= nil and veh ~= 0 and Config.Command then
       plate = GetVehicleNumberPlateText(veh)
       --TriggerClientEvent("engine:sound", -1, tostring(args[1]),plate)
       if mufflers[plate] == nil then
@@ -20,16 +19,19 @@ RegisterCommand("changesound", function(source, args, rawCommand)
       mufflers[plate].plate = plate
       local ent = Entity(veh).state
       local hash = GetHashKey(mufflers[plate].muffler)
-      ent.muffler = Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler
-      ent.engine = mufflers[plate].engine
+      ent:set('muffler', Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler, true)
+      ent:set('engine', mufflers[plate].engine, true)
+      SaveMuffler(plate,mufflers[plate])
   end
 end, false)
 
 Citizen.CreateThread(function()
-  local ret = SqlFunc(Config.Mysql,'fetchAll','SELECT * FROM renzu_muffler', {})
+  local ret = json.decode(GetResourceKvpString('renzu_engine') or '[]') or {}
   for k,v in pairs(ret) do
-    mufflers[v.plate] = v
+    if not mufflers[v.plate] then mufflers[v.plate] = {} end
+    mufflers[v.plate].plate = v.plate
     mufflers[v.plate].engine = v.muffler
+    mufflers[v.plate].muffler = v.muffler
     mufflers[v.plate].current = v.muffler
   end
 
@@ -38,66 +40,50 @@ Citizen.CreateThread(function()
     if mufflers[plate] and plate == mufflers[plate].plate then
       local ent = Entity(v).state
       local hash = GetHashKey(mufflers[plate].muffler)
-      ent.muffler = Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler
-      ent.engine = mufflers[plate].engine
+      ent:set('muffler', Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler, true)
+      ent:set('engine', mufflers[plate].engine, true)
     end
   end
 end)
 
-RegisterNetEvent('renzu_muffler:setmuffler')
-AddEventHandler('renzu_muffler:setmuffler', function(muffler,plate)
-  mufflers[plate] = muffler
+CreateEngine = function(name)
+  local data = Engines[name]
+  local metadata = {
+    description = data.name..' Engine - Can be installed to any vehicle. | brand: '..data.brand,
+    image = 'engine',
+    engine = data.model or data.handlingName,
+    label = data.name..' Engine'
+  }
+  exports.ox_inventory:AddItem(source,'enginegago',1,metadata, false, function(success, reason)
+  end)
+end
+
+exports('CreateEngine', function(name)
+  CreateEngine(name)
+end)
+
+RegisterNetEvent('buyengine', function(k)
+  local data = Engines[k]
+  local money = exports.ox_inventory:GetItem(source, 'money', nil, false)
+  if data.name == nil then data.name = data.handlingName end
+  if data.brand == nil then data.brand = 'Custom' end
+  if money.count >= data.price then
+    CreateEngine(k)
+    exports.ox_inventory:RemoveItem(source, 'money', data.price, nil)
+    TriggerClientEvent('renzu_engine:Notify',source, 'success', data.name..' Engine has been Bought')
+  end
 end)
 
 function SaveMuffler(plate,muffler)
-    local plate_ = string.gsub(plate, '^%s*(.-)%s*$', '%1')
-    local result = SqlFunc(Config.Mysql,'fetchAll','SELECT * FROM renzu_muffler WHERE TRIM(plate) = @plate', {['@plate'] = plate_})
-    if result[1] == nil then
-        SqlFunc(Config.Mysql,'execute','INSERT INTO renzu_muffler (plate, muffler) VALUES (@plate, @muffler)', {
-            ['@plate']   = plate,
-            ['@muffler']   = muffler,
-        })
-    elseif result[1] then
-        SqlFunc(Config.Mysql,'execute','UPDATE renzu_muffler SET muffler = @muffler WHERE TRIM(plate) = @plate', {
-            ['@plate'] = plate_,
-            ['@muffler'] = muffler,
-        })
+    local plate_ = plate
+    local data = json.decode(GetResourceKvpString('renzu_engine') or '[]') or {}
+    if data[plate] == nil then
+      data[plate] = muffler
+      SetResourceKvp('renzu_engine',json.encode(data))
+    elseif data[plate] then
+      data[plate] = muffler
+      SetResourceKvp('renzu_engine',json.encode(data))
     end
-end
-
-function SqlFunc(plugin,type,query,var)
-	local wait = promise.new()
-    if type == 'fetchAll' and plugin == 'mysql-async' then
-		    MySQL.Async.fetchAll(query, var, function(result)
-            wait:resolve(result)
-        end)
-    end
-    if type == 'execute' and plugin == 'mysql-async' then
-        MySQL.Async.execute(query, var, function(result)
-            wait:resolve(result)
-        end)
-    end
-    if type == 'execute' and plugin == 'ghmattisql' then
-        exports['ghmattimysql']:execute(query, var, function(result)
-            wait:resolve(result)
-        end)
-    end
-    if type == 'fetchAll' and plugin == 'ghmattisql' then
-        exports.ghmattimysql:execute(query, var, function(result)
-            wait:resolve(result)
-        end)
-    end
-    if type == 'execute' and plugin == 'oxmysql' then
-        exports.oxmysql:execute(query, var, function(result)
-            wait:resolve(result)
-        end)
-    end
-    if type == 'fetchAll' and plugin == 'oxmysql' then
-		exports['oxmysql']:fetch(query, var, function(result)
-			wait:resolve(result)
-		end)
-    end
-	return Citizen.Await(wait)
 end
 
 function firstToUpper(str)
@@ -105,53 +91,14 @@ function firstToUpper(str)
 end
 
 Citizen.CreateThread(function()
-  c = 0
-  if Config.custom_engine_enable then
-    for k, v in pairs(Config.custom_engine) do
-      Config.engine[k] = v
-    end
-  end
-  for v, k in pairs(Config.engine) do
-    c = c + 1
-    if tonumber(v) then
-      v = k.handlingName
-      --print(v)
-    end
-    local enginename = string.lower(v)
-    local label = string.upper(v)
-    foundRow = SqlFunc(Config.Mysql,'fetchAll',"SELECT * FROM items WHERE name = @name", {
-      ['@name'] = "muffler_"..enginename..""
-    })
-    if foundRow[1] == nil then
-      local weight = 'limit'
-      if Config.weight_type then
-        SqlFunc(Config.Mysql,'execute',"INSERT INTO items (name, label, weight) VALUES (@name, @label, @weight)", {
-          ['@name'] = "muffler_"..enginename.."",
-          ['@label'] = ""..firstToUpper(enginename).." Exhaust",
-          ['@weight'] = Config.weight
-        })
-        print("Inserting "..enginename.."")
-      else
-        SqlFunc(Config.Mysql,'execute',"INSERT INTO items (name, label) VALUES (@name, @label)", {
-          ['@name'] = "muffler_"..enginename.."",
-          ['@label'] = ""..firstToUpper(enginename).." Exhaust",
-        })
-        print("Inserting "..enginename.."")
-      end
-    end
-  end
-  while ESX == nil do Wait(10) end
-  for v, k in pairs(Config.engine) do
-    if tonumber(v) then
-      v = k.handlingName
-    end
-    local enginename = string.lower(v)
-    --print("register item", enginename)
-    ESX.RegisterUsableItem("muffler_"..enginename.."", function(source)
+  while ESX == nil do Wait(1011) end
+  if Config.Ox_Inventory then
+    ESX.RegisterUsableItem("enginegago", function(source,item,data)
       local xPlayer = ESX.GetPlayerFromId(source)
+      print('data',data)
       if Config.jobonly and xPlayer.job.name ~= tostring(Config.mufflerjob) then print("not mech") return end
-      xPlayer.removeInventoryItem("muffler_"..enginename.."", 1)
       local veh = GetVehiclePedIsIn(GetPlayerPed(source),false)
+      local enginename = data.metadata.engine
       local muffler = Config.custom_engine[GetHashKey(enginename)] ~= nil and Config.custom_engine[GetHashKey(enginename)].soundname or enginename
       if muffler ~= nil and veh ~= 0 then
         plate = GetVehicleNumberPlateText(veh)
@@ -161,13 +108,15 @@ Citizen.CreateThread(function()
         mufflers[plate].current = mufflers[plate].muffler or muffler
         mufflers[plate].muffler = muffler
         mufflers[plate].plate = plate
-        mufflers[plate].engine = v
+        mufflers[plate].engine = muffler
         local ent = Entity(veh).state
         local hash = GetHashKey(mufflers[plate].muffler)
-        ent.muffler = Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler
-        ent.engine = mufflers[plate].engine
-        SaveMuffler(plate,v)
+        ent:set('muffler', Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler, true)
+        ent:set('engine', mufflers[plate].engine, true)
+        xPlayer.removeInventoryItem("enginegago", 1)
+        SaveMuffler(plate,mufflers[plate])
       end
+      print(enginename,data.metadata,'aso')
     end)
   end
   print(" MUFFLER LOADED ")
@@ -181,8 +130,8 @@ AddEventHandler('entityCreated', function(entity)
     if mufflers[plate] and mufflers[plate].muffler then
       local ent = Entity(entity).state
       local hash = GetHashKey(mufflers[plate].muffler)
-      ent.muffler = Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler
-      ent.engine = mufflers[plate].engine
+      ent:set('muffler', Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler, true)
+      ent:set('engine', mufflers[plate].engine, true)
     end
   end
 end)
