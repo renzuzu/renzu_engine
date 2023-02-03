@@ -24,6 +24,7 @@ AddStateBagChangeHandler('engine' --[[key filter]], nil --[[bag filter]], functi
 	print('engine',value)
 	SetEngineSpecs(vehicle, value)
 	customengine[plate] = Entity(vehicle).state.engine
+	exports.renzu_mechanics:SetDefaultHandling(vehicle,GetHandlingfromModel(value))
 end)
 
 
@@ -136,8 +137,20 @@ function SetEngineSpecs(veh, model)
 	--SetVehicleHandlingField()
 end
 
-function GetHandlingfromModel(model)
-	local model = GetHashKey(model)
+FindModelFromTable = function(model)
+	for k,v in pairs(Config.custom_engine) do
+       if v.soundname == model then
+           return k
+	   end
+	end
+	return model
+end
+
+function GetHandlingfromModel(m)
+	local model = GetHashKey(m)
+	if not Config.custom_engine[m] then
+        model = FindModelFromTable(m)
+	end
 	if Config.custom_engine_enable and Config.custom_engine[model] ~= nil then
 		if Config.custom_engine[model].turboinstall then
 			ToggleVehicleMod(GetVehiclePedIsIn(PlayerPedId()) , 18, true)
@@ -155,7 +168,7 @@ function GetHandlingfromModel(model)
 	else
 		for k,v in pairs(vehiclehandling) do
 			--print(v.VehicleModels[1],model)
-			if GetHashKey(v.VehicleModels[1]) == model then
+			if GetHashKey(v.VehicleModels[1]) == GetHashKey(m) then
 				local t = {
 					['fDriveInertia'] = tonumber(v.DriveInertia),
 					['nInitialDriveGears'] = tonumber(v.InitialDriveGears),

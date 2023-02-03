@@ -25,6 +25,27 @@ RegisterCommand("changeengine", function(source, args, rawCommand)
   end
 end, false)
 
+EngineSwap = function(net,type)
+  local vehicle = NetworkGetEntityFromNetworkId(net)
+  if not DoesEntityExist(vehicle) then return end
+  local plate = string.gsub(GetVehicleNumberPlateText(vehicle), '^%s*(.-)%s*$', '%1'):upper()
+  if mufflers[plate] == nil then
+    mufflers[plate] = {}
+  end
+  mufflers[plate].current = mufflers[plate].muffler or type
+  mufflers[plate].muffler = type
+  mufflers[plate].engine = type
+  mufflers[plate].plate = plate
+  local ent = Entity(vehicle).state
+  local hash = GetHashKey(mufflers[plate].muffler)
+  ent:set('muffler', Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler, true)
+  ent:set('engine', mufflers[plate].engine, true)
+  SaveMuffler(plate,mufflers[plate])
+end
+
+exports('EngineSwap', EngineSwap)
+RegisterNetEvent('renzu_engine:EngineSwap', EngineSwap)
+
 Citizen.CreateThread(function()
   local ret = json.decode(GetResourceKvpString('renzu_engine') or '[]') or {}
   for k,v in pairs(ret) do
@@ -111,6 +132,7 @@ Citizen.CreateThread(function()
         mufflers[plate].engine = muffler
         local ent = Entity(veh).state
         local hash = GetHashKey(mufflers[plate].muffler)
+        TriggerClientEvent('renzu_engine:OnEngineChange',source)
         ent:set('muffler', Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler, true)
         ent:set('engine', mufflers[plate].engine, true)
         xPlayer.removeInventoryItem("enginegago", 1)
@@ -122,9 +144,10 @@ Citizen.CreateThread(function()
   print(" MUFFLER LOADED ")
 end)
 
+local servervehicles = {}
 AddEventHandler('entityCreated', function(entity)
   local entity = entity
-  Wait(4000)
+  Wait(2000)
   if DoesEntityExist(entity) and GetEntityPopulationType(entity) == 7 and GetEntityType(entity) == 2 then
     local plate = GetVehicleNumberPlateText(entity)
     if mufflers[plate] and mufflers[plate].muffler then
@@ -132,6 +155,10 @@ AddEventHandler('entityCreated', function(entity)
       local hash = GetHashKey(mufflers[plate].muffler)
       ent:set('muffler', Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler, true)
       ent:set('engine', mufflers[plate].engine, true)
+      if servervehicles[plate] and DoesEntityExist(NetworkGetEntityFromNetworkId(servervehicles[plate])) and GetEntityType(NetworkGetEntityFromNetworkId(servervehicles[plate])) == 2 and servervehicles[GetVehicleNumberPlateText(NetworkGetEntityFromNetworkId(servervehicles[plate]))] then
+        DeleteEntity(NetworkGetEntityFromNetworkId(servervehicles[plate])) -- delete duplicate vehicle with the same plate wandering in the server
+      end
+      servervehicles[plate] = NetworkGetNetworkIdFromEntity(entity)
     end
   end
 end)

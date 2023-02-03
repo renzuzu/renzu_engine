@@ -4671,8 +4671,24 @@ Engines = { -- https://github.com/qbcore-framework/qb-core/blob/main/shared/vehi
         
     },
 }
+local vehicles = {}
+for k,v in pairs(Engines) do
+	if not vehicles[v.brand] then vehicles[v.brand] = {} end
+	table.insert(vehicles[v.brand],v)
+	print(v.brand)
+end
+
 if Config.custom_engine_enable then
     for k, v in pairs(Config.custom_engine) do
       Engines[k] = v
     end
 end
+
+Lists = function()
+	return {
+		Locals = Engines,
+		Custom = Config.custom_engine
+	}
+end
+
+exports('Engines',Lists)
