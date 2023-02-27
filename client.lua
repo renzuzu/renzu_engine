@@ -24,7 +24,7 @@ AddStateBagChangeHandler('engine' --[[key filter]], nil --[[bag filter]], functi
 	print('engine',value)
 	SetEngineSpecs(vehicle, value)
 	customengine[plate] = Entity(vehicle).state.engine
-	exports.renzu_mechanics:SetDefaultHandling(vehicle,GetHandlingfromModel(value))
+	exports.renzu_tuners:SetDefaultHandling(vehicle,GetHandlingfromModel(value))
 end)
 
 
