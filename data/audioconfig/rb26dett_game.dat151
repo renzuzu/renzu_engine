@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dat151>
+ <Version value="22266904" />
+ <Items>
+  <Item type="Vehicle" ntOffset="4483">
+   <Name>rb26dett</Name>
+   <Unk00 value="0x90404A69" />
+   <Engine>rb26dett_engine</Engine>
+   <EngineGranular>rb26dett_granular_engine</EngineGranular>
+   <Horns>hash_134DA50D</Horns>
+   <DoorOpen>hash_6189B119</DoorOpen>
+   <DoorClose>hash_7134E777</DoorClose>
+   <TrunkOpen>hash_85EBAC44</TrunkOpen>
+   <TrunkClose>hash_50DB730D</TrunkClose>
+   <Unk08>null_sound</Unk08>
+   <Unk09 value="0.2" />
+   <SuspensionUp>hash_E53F236A</SuspensionUp>
+   <SuspensionDown>hash_BD190A63</SuspensionDown>
+   <Unk12 value="0.4" />
+   <Unk13 value="1" />
+   <Unk14>hash_00C2FB47</Unk14>
+   <Unk15 value="0" />
+   <Unk16 value="0" />
+   <Unk17 value="0" />
+   <ScannerParams>zr380_scanner_params</ScannerParams>
+   <JumpLandIntact>hash_A5EB71C0</JumpLandIntact>
+   <JumpLandLoose>hash_1AF1FCAC</JumpLandLoose>
+   <Unk21 value="31" />
+   <Unk22 value="36" />
+   <RadioFlags value="0x0A010000" />
+   <IndicatorOn>null_sound</IndicatorOn>
+   <IndicatorOff>null_sound</IndicatorOff>
+   <Handbrake>hash_57E280AF</Handbrake>
+   <Unk27 value="0x00030000" />
+   <Unk28>hash_674E1F4D</Unk28>
+   <Unk29 value="0x55FC0070" />
+   <Unk30>hash_795E90E6</Unk30>
+   <Unk31>hash_795E90E6</Unk31>
+   <Unk32>hash_2FF627AC</Unk32>
+   <StartupSequence>null_sound</StartupSequence>
+   <Unk34>null_sound</Unk34>
+   <Unk35>hash_F52E6D86</Unk35>
+   <Unk36>hash_F52E6D86</Unk36>
+   <Unk37 value="6" />
+   <Unk38 value="3" />
+   <Unk39 />
+   <Unk40 value="0" />
+   <Sirens />
+   <Unk42 value="0" />
+   <Unk43 value="0" />
+   <Unk44 value="0" />
+   <Unk45>hash_0C3F6AD5</Unk45>
+   <Unk46>hash_359E05CB</Unk46>
+   <Unk47 />
+   <TurretSounds />
+   <Unk49 value="8" />
+   <Unk50 />
+   <Unk51 />
+   <Unk52 value="0" />
+   <ElectricEngine />
+   <Unk54 value="0" />
+   <ReverseWarning>null_sound</ReverseWarning>
+   <Unk56 value="3" />
+   <VehicleMaster>null_sound</VehicleMaster>
+   <ShutdownBeep>null_sound</ShutdownBeep>
+   <Unk59 value="1" />
+   <Unk60 value="0" />
+   <Unk61 value="1" />
+   <Unk62 value="0" />
+   <Unk63>null_sound</Unk63>
+   <Unk64 value="0" />
+   <Unk65 value="0" />
+   <Unk66 value="0" />
+   <Unk67 />
+   <Unk68>null_sound</Unk68>
+   <Unk69 />
+   <Unk70 value="0" />
+   <Unk71>null_sound</Unk71>
+   <Unk72>null_sound</Unk72>
+  </Item>
+  <Item type="VehicleEngine" ntOffset="4346">
+   <Name>rb26dett_engine</Name>
+   <Unk00 value="200" />
+   <Unk01 value="-400" />
+   <Unk02 value="800" />
+   <Unk03 value="600" />
+   <EngineLow>hash_0DB62E45</EngineLow>
+   <EngineHigh>hash_2B6330E8</EngineHigh>
+   <ExhaustLow>hash_CD9CD162</ExhaustLow>
+   <ExhaustHigh>hash_8A1C3CA2</ExhaustHigh>
+   <RevsOff>hash_AB91475D</RevsOff>
+   <Unk09 value="-200" />
+   <Unk10 value="1600" />
+   <EngineIdleLoop>hash_5ABAD4F2</EngineIdleLoop>
+   <ExhaustIdleLoop>hash_776B4236</ExhaustIdleLoop>
+   <Unk13 value="-200" />
+   <Unk14 value="1200" />
+   <AirIntake>hash_4CF1C005</AirIntake>
+   <Unk16 value="-800" />
+   <Unk17 value="0" />
+   <Turbo>jester3_veh_synth_turbo</Turbo>
+   <Unk19 value="-600" />
+   <Unk20 value="600" />
+   <DumpValve>null_sound</DumpValve>
+   <Unk22 value="100" />
+   <Unk23 value="90" />
+   <Transmission>null_sound</Transmission>
+   <Unk25 value="0" />
+   <Unk26 value="2400" />
+   <Unk27 value="500" />
+   <Ignition>hash_26DE38C2</Ignition>
+   <ShutDown>rb26dett_shut_down</ShutDown>
+   <Unk30>null_sound</Unk30>
+   <ExhaustPops>rb26dett_exhaust_pops</ExhaustPops>
+   <Unk32>hash_3F082BF6</Unk32>
+   <Unk33 value="0" />
+   <FansVolume value="-1000" />
+   <StartupMaster>rb26dett_start_up</StartupMaster>
+   <Unk36 />
+   <Unk37 />
+   <Unk38 />
+   <Unk39 />
+   <Unk40>hash_490413A6</Unk40>
+   <Unk41>hash_58337F32</Unk41>
+   <Unk42 value="100" />
+   <Unk43>hash_AB78E2E9</Unk43>
+   <Unk44>hash_79AC0C09</Unk44>
+   <Unk45 value="0" />
+   <Unk46 value="0" />
+   <Unk47 value="0" />
+   <Unk48 value="0" />
+   <Unk49 value="0" />
+   <Unk50 value="0" />
+   <DumpValveUpgraded>rb26dett_dump_valve</DumpValveUpgraded>
+   <Unk52 value="1000" />
+   <TransmissionUpgraded>null_sound</TransmissionUpgraded>
+   <TurboUpgraded>jester3_veh_synth_turbo</TurboUpgraded>
+   <AirIntakeUpgraded>hash_A8087D66</AirIntakeUpgraded>
+   <ExhaustPopsUpgraded>rb26dett_exhaust_pops</ExhaustPopsUpgraded>
+  </Item>
+  <Item type="VehicleEngineGranular" ntOffset="4359">
+   <Name>rb26dett_granular_engine</Name>
+   <Unk00 value="0xAAAAA955" />
+   <MasterVolume value="390" />
+   <EngineAccel>rb26dett_engine_accel</EngineAccel>
+   <ExhaustAccel>rb26dett_exhaust_accel</ExhaustAccel>
+   <Unk04 value="0" />
+   <Unk05 value="0" />
+   <Unk06 value="0" />
+   <Unk07 value="0" />
+   <Unk08 value="0" />
+   <Unk09 value="0" />
+   <Unk10 value="0" />
+   <Unk11 value="0" />
+   <Unk12 value="0" />
+   <Unk13 value="0" />
+   <Unk14 value="400" />
+   <Unk15 value="0" />
+   <Unk16 value="-200" />
+   <Unk17 value="200" />
+   <Unk18 value="100" />
+   <Unk19 value="0" />
+   <Unk20 value="200" />
+   <Unk21 value="30" />
+   <Unk22 value="0.2" />
+   <Unk23 value="0.26" />
+   <Unk24 value="0.2" />
+   <Unk25 value="0.08" />
+   <Unk26 value="0.2" />
+   <Unk27 value="0.6" />
+   <Unk28 value="0.2" />
+   <Unk29 value="-400" />
+   <Unk30 value="-400" />
+   <EngineSubmix>elegy_engine_submix</EngineSubmix>
+   <EngineSubmixPreset>elegy_engine_submix_preset</EngineSubmixPreset>
+   <ExhaustSubmix>elegy_exhaust_submix</ExhaustSubmix>
+   <ExhaustSubmixPreset>elegy_exhaust_submix_preset</ExhaustSubmixPreset>
+   <EngineAccelNPC>rb26dett_engine_accel_npc</EngineAccelNPC>
+   <ExhaustAccelNPC>rb26dett_exhaust_accel</ExhaustAccelNPC>
+   <Unk37>rb26dett_limiter_pops</Unk37>
+   <Unk38 value="0" />
+   <Unk39 value="0" />
+   <Unk40>hash_490413A6</Unk40>
+   <Unk41>hash_58337F32</Unk41>
+   <Unk42 value="600" />
+   <Unk43 value="4" />
+   <Unk44 value="2" />
+   <IdleSub>hash_84CA8205</IdleSub>
+   <Unk46 value="0" />
+   <Unk47 value="0" />
+   <Unk48 value="0" />
+   <Unk49 value="0" />
+   <Unk50 value="0" />
+   <Unk51 value="0" />
+   <Unk52>hash_B3BAE87C</Unk52>
+   <Unk53>rb26dett_limiter_pops</Unk53>
+   <Unk54 value="0" />
+   <Unk55 value="200" />
+   <Unk56 value="500" />
+   <Unk57 value="500" />
+   <Unk58 value="2" />
+   <Unk59 value="0.2" />
+  </Item>
+ </Items>
+</Dat151>
