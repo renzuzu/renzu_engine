@@ -3,9 +3,10 @@ local customengine = {}
 refresh = false
 AddStateBagChangeHandler('muffler' --[[key filter]], nil --[[bag filter]], function(bagName, key, value, _unused, replicated)
 	Wait(0)
-	if not value then return end
-    local net = tonumber(bagName:gsub('entity:', ''), 10)
-    local vehicle = NetworkGetEntityFromNetworkId(net)
+	local entity = GetEntityFromStateBagName(bagName)
+	if not value or entity == 0 then return end
+    --local net = tonumber(bagName:gsub('entity:', ''), 10)
+    local vehicle = NetworkGetEntityFromNetworkId(entity)
 	local ent = Entity(vehicle).state
 	local plate = GetVehicleNumberPlateText(vehicle)
 	ForceVehicleEngineAudio(vehicle,value)
@@ -13,8 +14,9 @@ end)
 
 AddStateBagChangeHandler('engine' --[[key filter]], nil --[[bag filter]], function(bagName, key, value, _unused, replicated)
 	Wait(0)
-	if not value then return end
-    local net = tonumber(bagName:gsub('entity:', ''), 10)
+	local net = GetEntityFromStateBagName(bagName)
+	if not value or entity == 0 then return end
+    --local net = tonumber(bagName:gsub('entity:', ''), 10)
     local vehicle = NetworkGetEntityFromNetworkId(net)
 	local ent = Entity(vehicle).state
 	local plate = GetVehicleNumberPlateText(vehicle)
