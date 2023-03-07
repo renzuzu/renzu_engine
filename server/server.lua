@@ -134,9 +134,7 @@ Citizen.CreateThread(function()
 end)
 
 local servervehicles = {}
-AddEventHandler('entityCreated', function(entity)
-    local entity = entity
-    Wait(2000)
+SetEngine = function(entity)
     if DoesEntityExist(entity) and GetEntityPopulationType(entity) == 7 and GetEntityType(entity) == 2 then
         local plate = GetVehicleNumberPlateText(entity)
         if mufflers[plate] and mufflers[plate].muffler then
@@ -149,5 +147,22 @@ AddEventHandler('entityCreated', function(entity)
             end
             servervehicles[plate] = NetworkGetNetworkIdFromEntity(entity)
         end
+    end
+end
+
+AddEventHandler('entityCreated', function(entity)
+    local entity = entity
+    Wait(2000)
+    SetEngine(entity)
+end)
+
+AddStateBagChangeHandler('VehicleProperties' --[[key filter]], nil --[[bag filter]], function(bagName, key, value, _unused, replicated)
+	Wait(0)
+	local net = tonumber(bagName:gsub('entity:', ''), 10)
+	if not value then return end
+    local entity = NetworkGetEntityFromNetworkId(net)
+    Wait(1000)
+    if DoesEntityExist(entity) then
+        SetEngine(entity) -- compatibility with ESX onesync server setter vehicle spawn
     end
 end)
