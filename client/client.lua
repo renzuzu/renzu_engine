@@ -5,24 +5,20 @@ AddStateBagChangeHandler('muffler' --[[key filter]], nil --[[bag filter]], funct
 	Wait(0)
 	local entity = GetEntityFromStateBagName(bagName)
 	if not value or entity == 0 then return end
-    --local net = tonumber(bagName:gsub('entity:', ''), 10)
-    local vehicle = NetworkGetEntityFromNetworkId(entity)
-	local ent = Entity(vehicle).state
-	local plate = GetVehicleNumberPlateText(vehicle)
-	ForceVehicleEngineAudio(vehicle,value)
+	local ent = Entity(entity).state
+	local plate = GetVehicleNumberPlateText(entity)
+	ForceVehicleEngineAudio(entity,value)
 end)
 
 AddStateBagChangeHandler('engine' --[[key filter]], nil --[[bag filter]], function(bagName, key, value, _unused, replicated)
 	Wait(0)
-	local net = GetEntityFromStateBagName(bagName)
+	local entity = GetEntityFromStateBagName(bagName)
 	if not value or entity == 0 then return end
-    --local net = tonumber(bagName:gsub('entity:', ''), 10)
-    local vehicle = NetworkGetEntityFromNetworkId(net)
-	local ent = Entity(vehicle).state
-	local plate = GetVehicleNumberPlateText(vehicle)
-	SetEngineSpecs(vehicle, value)
-	customengine[plate] = Entity(vehicle).state.engine
-	exports.renzu_tuners:SetDefaultHandling(vehicle,GetHandlingfromModel(value))
+	local ent = Entity(entity).state
+	local plate = GetVehicleNumberPlateText(entity)
+	SetEngineSpecs(entity, value)
+	customengine[plate] = Entity(entity).state.engine
+	exports.renzu_tuners:SetDefaultHandling(entity,GetHandlingfromModel(value))
 end)
 
 
