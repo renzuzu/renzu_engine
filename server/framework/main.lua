@@ -1,6 +1,6 @@
 function GetPlayerFromIdentifier(identifier)
 	self = {}
-	if shared.framework == 'ESX' then
+	if ESX then
 		local player = ESX.GetPlayerFromIdentifier(identifier)
 		self.src = player and player.source
 		return player
@@ -15,9 +15,9 @@ end
 function GetPlayerFromId(src)
 	self = {}
 	self.src = src
-	if shared.framework == 'ESX' then
+	if ESX then
 		return ESX.GetPlayerFromId(self.src)
-	elseif shared.framework == 'QBCORE' then
+	elseif QBCore then
 		xPlayer = QBCore.Functions.GetPlayer(self.src)
 		if not xPlayer then return end
 		if xPlayer.identifier == nil then
