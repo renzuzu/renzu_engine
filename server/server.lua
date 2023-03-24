@@ -142,10 +142,6 @@ SetEngine = function(entity)
             local hash = GetHashKey(mufflers[plate].muffler)
             ent:set('muffler', Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler, true)
             ent:set('engine', mufflers[plate].engine, true)
-            if servervehicles[plate] and DoesEntityExist(NetworkGetEntityFromNetworkId(servervehicles[plate])) and GetEntityType(NetworkGetEntityFromNetworkId(servervehicles[plate])) == 2 and servervehicles[GetVehicleNumberPlateText(NetworkGetEntityFromNetworkId(servervehicles[plate]))] then
-                DeleteEntity(NetworkGetEntityFromNetworkId(servervehicles[plate])) -- delete duplicate vehicle with the same plate wandering in the server
-            end
-            servervehicles[plate] = NetworkGetNetworkIdFromEntity(entity)
         end
     end
 end
