@@ -15,14 +15,14 @@ RegisterCommand("changeengine", function(source, args, rawCommand)
         local hash = GetHashKey(mufflers[plate].muffler)
         ent:set('muffler', Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler, true)
         ent:set('engine', mufflers[plate].engine, true)
-        SaveMuffler(plate,mufflers[plate])
+        SaveEngine(plate,mufflers[plate])
     end
 end, false)
 
 EngineSwap = function(net,type)
     local vehicle = NetworkGetEntityFromNetworkId(net)
     if not DoesEntityExist(vehicle) then return end
-    local plate = string.gsub(GetVehicleNumberPlateText(vehicle), '^%s*(.-)%s*$', '%1'):upper()
+    local plate = GetVehicleNumberPlateText(vehicle)
     if mufflers[plate] == nil then
         mufflers[plate] = {}
     end
@@ -34,7 +34,7 @@ EngineSwap = function(net,type)
     local hash = GetHashKey(mufflers[plate].muffler)
     ent:set('muffler', Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler, true)
     ent:set('engine', mufflers[plate].engine, true)
-    SaveMuffler(plate,mufflers[plate])
+    SaveEngine(plate,mufflers[plate])
 end
 
 exports('EngineSwap', EngineSwap)
@@ -90,14 +90,14 @@ RegisterNetEvent('buyengine', function(k)
     end
 end)
 
-function SaveMuffler(plate,muffler)
+function SaveEngine(plate,engine)
     local plate_ = plate
     local data = json.decode(GetResourceKvpString('renzu_engine') or '[]') or {}
     if data[plate] == nil then
-        data[plate] = muffler
+        data[plate] = engine
         SetResourceKvp('renzu_engine',json.encode(data))
     elseif data[plate] then
-        data[plate] = muffler
+        data[plate] = engine
         SetResourceKvp('renzu_engine',json.encode(data))
     end
 end
@@ -128,7 +128,7 @@ Citizen.CreateThread(function()
             ent:set('muffler', Config.custom_engine[hash] ~= nil and Config.custom_engine[hash].soundname or mufflers[plate].muffler, true)
             ent:set('engine', mufflers[plate].engine, true)
             xPlayer.removeInventoryItem("enginegago", 1)
-            SaveMuffler(plate,mufflers[plate])
+            SaveEngine(plate,mufflers[plate])
         end
     end)
 end)
