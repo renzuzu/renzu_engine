@@ -85,7 +85,7 @@ RegisterNetEvent('buyengine', function(k)
     if data.brand == nil then data.brand = 'Custom' end
     if money >= data.price then
         CreateEngine(k)
-        xPlayer.removeInventoryItem(source, 'money', data.price, nil)
+        xPlayer.removeMoney(data.price)
         TriggerClientEvent('renzu_engine:Notify',source, 'success', data.name..' Engine has been Bought')
     end
 end)
